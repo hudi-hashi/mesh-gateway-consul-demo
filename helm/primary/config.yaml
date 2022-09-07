@@ -1,0 +1,49 @@
+global:
+  name: consul
+  datacenter: dc1
+  gossipEncryption:
+    autoGenerate: true
+  tls:
+    enabled: true
+    httpsOnly: false
+    enableAutoEncrypt: true
+    verify: true
+  federation:
+    enabled: true
+    createFederationSecret: true
+  acls:
+    manageSystemACLs: true
+    createReplicationToken: true
+connectInject:
+  enabled: true
+controller:
+  enabled: true
+server:
+  replicas: 1
+client:
+  enabled: true
+controller:
+  enabled: true
+ui:
+  enabled: true
+  service:
+    enabled: true
+dns:
+  enabled: true
+ingressGateways:
+  enabled: true
+  replicas: 1
+  gateways:
+    - name: ingress-gateway
+      service:
+        type: LoadBalancer  
+meshGateway:
+ enabled: true
+ replicas: 1
+#  service:
+#   enabled: true
+#   type: 'LoadBalancer'
+# #  type: ‘NodePort’ # For minikube
+#   nodePort: 30200
+#  wanAddress:
+#   source: Service
