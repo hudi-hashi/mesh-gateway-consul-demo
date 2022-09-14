@@ -57,8 +57,11 @@ kubectl apply -f apps/counting-api.yaml
 kubectl apply -f apps/dashboard.yaml
 
 ### Watch the dashboard
-
 kubectl port-forward deploy/dashboard 9002:9002
+
+### Enable failover for the counting app
+kubectl apply -f apps/config/enable-counting-failover.yaml
+
 
 
 kubectl apply -f helm/config/service-resolver.yaml

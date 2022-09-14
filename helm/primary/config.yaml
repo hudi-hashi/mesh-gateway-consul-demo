@@ -40,6 +40,9 @@ ingressGateways:
 meshGateway:
  enabled: true
  replicas: 1
+apiGateway:
+  enabled: true
+  
 #  service:
 #   enabled: true
 #   type: 'LoadBalancer'
