@@ -6,4 +6,4 @@ spec:
   connectTimeout: 15s
   failover:
     '*':
-      datacenters: ['dc2']    
+      datacenters: ['dc1']

@@ -20,6 +20,8 @@ controller:
   enabled: true
 server:
   replicas: 1
+  exposeService: 
+    enabled: true
 client:
   enabled: true
 controller:
@@ -28,6 +30,7 @@ ui:
   enabled: true
   service:
     enabled: true
+    type: LoadBalancer
 dns:
   enabled: true
 ingressGateways:
@@ -40,8 +43,8 @@ ingressGateways:
 meshGateway:
  enabled: true
  replicas: 1
-apiGateway:
-  enabled: true
+#apiGateway:
+#  enabled: true
   
 #  service:
 #   enabled: true
