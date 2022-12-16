@@ -38,7 +38,8 @@ spec:
         image: nicholasjackson/fake-service:v0.24.2
         env: 
         - name: UPSTREAM_URIS
-          value: api.default.svc.cluster.local:9090,cache.default.svc.cluster.local:9091
+          value: http://api.default.svc.cluster.local:9090,http://cache.default.svc.cluster.local:9091
+          #value: http://cache.default.svc.cluster.local:9091
         - name: NAME
           value: Frontend (Only in the mesh)
         ports:

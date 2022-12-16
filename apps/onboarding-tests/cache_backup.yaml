@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: cache
+  name: cache-backup
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: cache
+  name: cache-backup
 spec:
   selector:
-    app: cache
+    app: cache-backup
   ports:
   - port: 9091
     targetPort: 9091
@@ -17,35 +17,37 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: cache
-  name: cache
+  # labels:
+  #   app: cache-v2
+  name: cache-backup
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cache
+      app: cache-backup
+      version: backup
   template:
     metadata:
       annotations:
         'consul.hashicorp.com/connect-inject': 'true'
         'consul.hashicorp.com/transparent-proxy': 'true'       
-        'consul.hashicorp.com/transparent-proxy-exclude-inbound-ports': '9091'
-        'consul.hashicorp.com/service-meta-version': 'v1'
-        'consul.hashicorp.com/service-tags': 'v1'
+      #  'consul.hashicorp.com/transparent-proxy-exclude-inbound-ports': '9091'
+        'consul.hashicorp.com/service-meta-version': 'backup'
+        'consul.hashicorp.com/service-tags': 'backup'
       labels:
-        app: cache
+        app: cache-backup
+        version: backup
     spec:
       containers:
-      - name: cache
+      - name: cache-backup
         image: nicholasjackson/fake-service:v0.24.2
         env: 
         - name: NAME
-          value: "Cache V1 (Mixed Mode)"
-        - name: MESSAGE
-          value: "Hi this is cache V1"
+          value: "Cache backup (In and Out of the Mesh)"
         - name: LISTEN_ADDR
           value: "0.0.0.0:9091"
+        - name: MESSAGE
+          value: "Hi, this is cache backup"          
         ports:
         - containerPort: 9091
-      serviceAccountName: cache
+      serviceAccountName: cache-backup

@@ -40,7 +40,7 @@ spec:
         - name: NAME
           value: API (Not in the mesh)        
         - name: UPSTREAM_URIS
-          value: cache.default.svc.cluster.local:9091
+          value: http://cache.default.svc.cluster.local:9091
         ports:
         - containerPort: 9090
       serviceAccountName: api
