@@ -1,8 +1,8 @@
 
 ### Deploy the clusters
-
+```
 terraform apply -auto-approve
-
+```
 ### Configure kubernetes contexts
 ```
 aws eks update-kubeconfig --region us-east-2 --name hudi_eks_primary --alias primary
