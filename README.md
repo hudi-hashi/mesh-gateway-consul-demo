@@ -5,8 +5,8 @@ terraform apply -auto-approve
 
 ### Configure kubernetes contexts
 ```
-aws eks update-kubeconfig --region us-east-2 --name nwales_eks_primary --alias primary
-aws eks update-kubeconfig --region us-west-2 --name nwales_eks_secondary --alias secondary
+aws eks update-kubeconfig --region us-east-2 --name hudi_eks_primary --alias primary
+aws eks update-kubeconfig --region us-west-2 --name hudi_eks_secondary --alias secondary
 ```
 
 ### Setup the primary datacenter
