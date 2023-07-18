@@ -1,14 +1,14 @@
 module "eks_cluster_primary" {
     source = "./modules/eks"
 
-    name   = "nwales_eks_primary"
+    name   = "hudi_eks_primary"
     region = "us-east-2"
 }
 
 # module "eks_cluster_secondary" {
 #     source = "./modules/eks"
 
-#     name   = "nwales_eks_secondary"
+#     name   = "hudi_eks_secondary"
 #     region = "us-west-2"
 # }
 
